@@ -23,6 +23,9 @@ const Reviews = ({ getReviews, movie, reviews, setReviews }) => {
 
         const rev = revText.current;
 
+        if (rev.value.trim().length === 0)  return;
+        
+
         try {
             const response = await api.post("/api/v1/reviews", { reviewBody: rev.value, imdbId: movieId });
 
